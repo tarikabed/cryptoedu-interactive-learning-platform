@@ -1,0 +1,14 @@
+project_name: Project Name
+
+project_description: |
+  Short description (100 words) about the web app proposed and developed. You can provide a brief overview of the project here, including which UN's SDGs this project is tackling.
+
+  Line breaks are permitted.
+
+group_members:
+  - Member 1
+  - Member 2
+  - Member 3
+  - Member 4
+
+group_image: team.jpg
