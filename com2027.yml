@@ -1,14 +1,17 @@
-project_name: Project Name
+project_name: CryptoEdu
 
 project_description: |
-  Short description (100 words) about the web app proposed and developed. You can provide a brief overview of the project here, including which UN's SDGs this project is tackling.
+  Cryptocurrency learning platform consisting of a paper trading simulator, dynamic personalised trading feedback powered by AI, smart quizzes based on active recall, courses and news tabs, and an integrated tax calculator.
 
-  Line breaks are permitted.
+  SDG: 4 Quality education and 8 Decent work and economic growth
 
 group_members:
-  - Member 1
-  - Member 2
-  - Member 3
-  - Member 4
+  - Jasjyot Saggu
+  - Manraj Boparai
+  - Kaventthan Sivachelvan
+  - Tarik Abed
+  - Hasoor Bhatti
+  - Malaika Shahid
+  - Hamzah Mohamed
 
 group_image: team.jpg
