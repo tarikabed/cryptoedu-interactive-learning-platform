@@ -1,5 +1,5 @@
 """
-WSGI config for cryptoclass project.
+WSGI config for cryptoedu project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'cryptoclass.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'cryptoedu.settings')
 
 application = get_wsgi_application()
