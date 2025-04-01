@@ -18,8 +18,11 @@ def btc_price(request):
     btc_price = data['bitcoin']['usd']
     return JsonResponse({"bitcoin_price": btc_price})
 
-#Show specific coins' graph
+#Show specific coins' graph in the format [[milliseconds since 1970, coin price], ...]
 def btc_graph(request, coin_id):
+    #TODO bug fix: occasionally this function causes an error: KeyError at /trading/bitcoin/ 'prices'
+    # is usually resolved by waiting 30 seconds so not a big priority to fix
+
     url = f"https://api.coingecko.com/api/v3/coins/{coin_id}/market_chart"
     params = {
         'vs_currency': 'usd',
