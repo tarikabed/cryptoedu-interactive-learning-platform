@@ -4,7 +4,6 @@ import { Chart as ChartJS, LineElement, CategoryScale, LinearScale, PointElement
 
 ChartJS.register(LineElement, CategoryScale, LinearScale, PointElement, Tooltip, Legend, Filler);
 
-
 function Trader() {
     const [data, setData] = useState(null);
 
