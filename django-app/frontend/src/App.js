@@ -1,8 +1,14 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import logo from './logo.svg';
 import './App.css';
-import Trader from './pages/Trader'
+
 import Navbar from './components/Navbar';
+import Login from './pages/Login';
+import Trader from './pages/Trader';
+import Achievements from './pages/Achievements';
+import Friends from './pages/Friends';
+import Portfolio from './pages/Portfolio';
+import Home from './pages/Home';
+import RouteProtector from './components/RouteProtector';
 
 function App() {
   return (
@@ -10,7 +16,23 @@ function App() {
       <Navbar />
 
       <Routes>
-        <Route path="/trader" element={<Trader />} />
+        {/*Public routes*/}
+        <Route path="/login" element={<Login />} />
+        <Route path="/" element={<Home />} />
+
+        {/*Private routes (requires login)*/}
+        <Route path="/trader" element={
+          <RouteProtector><Trader /></RouteProtector>
+        } />
+        <Route path="/achievements" element={
+          <RouteProtector><Achievements /></RouteProtector>
+        } />
+        <Route path="/friends" element={
+          <RouteProtector><Friends /></RouteProtector>
+        } />
+        <Route path="/portfolio" element={
+          <RouteProtector><Portfolio /></RouteProtector>
+        } />
       </Routes>
     </Router>
   );
