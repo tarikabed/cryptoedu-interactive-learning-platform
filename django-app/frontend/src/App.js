@@ -9,6 +9,11 @@ import Friends from './pages/Friends';
 import Portfolio from './pages/Portfolio';
 import Home from './pages/Home';
 import RouteProtector from './components/RouteProtector';
+import Courses from './pages/Courses';
+import CourseDetail from './pages/CourseDetail';
+
+
+
 
 function App() {
   return (
@@ -33,6 +38,13 @@ function App() {
         <Route path="/portfolio" element={
           <RouteProtector><Portfolio /></RouteProtector>
         } />
+        <Route path="/courses" element={
+        <RouteProtector><Courses /></RouteProtector>
+        } />
+        <Route path="/courses/:id" element={
+        <RouteProtector><CourseDetail /></RouteProtector>
+        } />
+
       </Routes>
     </Router>
   );
