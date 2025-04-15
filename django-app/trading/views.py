@@ -5,31 +5,44 @@ import requests
 # Create your views here.
 
 #Show all trending coins as a list
-def btc_price(request):
-    url = "https://api.coingecko.com/api/v3/simple/price"
+def coin_prices(request):
+    url = "https://api.coingecko.com/api/v3/coins/markets"
     params = {
-        'ids' : 'bitcoin',
-        'vs_currencies' : 'usd',
+        'ids' : 'bitcoin, ethereum, tether, ripple, binancecoin, solana, usd-coin, tron, dogecoin',
+        'vs_currency' : 'usd',
     }
     response = requests.get(url, params=params)
-    #Error checking with response status code to be implemented
+
+    #Error checking with response status implemented
+    if response.status_code != 200:
+        return JsonResponse("Error occurred!")
+    
     data = response.json()
+    new_data = []
 
-    btc_price = data['bitcoin']['usd']
-    return JsonResponse({"bitcoin_price": btc_price})
+    for coin in data:
+        new_data.append({
+            "name": coin["name"],
+            "current_price": coin["current_price"],
+            "market_cap": coin["market_cap"],
+            "price_change_percentage_24h": coin["price_change_percentage_24h"],
+            "high_24h": coin["high_24h"],
+            "low_24h": coin["low_24h"],
+            "ath": coin["ath"],
+        })
 
-#Show specific coins' graph in the format [[milliseconds since 1970, coin price], ...]
-def btc_graph(request, coin_id):
-    #TODO bug fix: occasionally this function causes an error: KeyError at /trading/bitcoin/ 'prices'
-    # is usually resolved by waiting 30 seconds so not a big priority to fix
+    return JsonResponse({"coins": new_data})
 
+def coin_graph(request, coin_id):
     url = f"https://api.coingecko.com/api/v3/coins/{coin_id}/market_chart"
     params = {
         'vs_currency': 'usd',
         'days': '365',
         }
     response = requests.get(url, params=params)
-    #Error checking with response status code to be implemented
+    #Error checking with response status implemented
+    if response.status_code != 200:
+        return JsonResponse("Error occurred!")
     data = response.json()
     
     prices = []
@@ -38,5 +51,3 @@ def btc_graph(request, coin_id):
         prices.append([price[0], price[1]])
     
     return JsonResponse(prices, safe=False)
-    
-#Live data to be implemented
