@@ -1,7 +1,7 @@
 from django.urls import path
-from .views import btc_price, btc_graph
+from .views import coin_prices, coin_graph
 
 urlpatterns = [
-    path('trading/', btc_price, name='btc_price'),
-    path('trading/<str:coin_id>/', btc_graph, name='btc_graph'),
+    path('trading/', coin_prices, name='coin_prices'),
+    path('trading/<str:coin_id>/', coin_graph, name='coin_graph'),
 ]
