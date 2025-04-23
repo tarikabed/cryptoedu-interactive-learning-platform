@@ -16,7 +16,7 @@ const CourseCard = ({ course }) => {
           cursor: "pointer",
           transition: "all 0.2s ease-in-out"
         }}
-        onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.02)")}
+        onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.05)")}
         onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
       >
         <div style={{ fontSize: "2rem", marginBottom: "1rem" }}>

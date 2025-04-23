@@ -1,9 +1,10 @@
 from django.db import models
-
+# from django.conf import settings
 from django.contrib.auth.models import User
 
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
+    #user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     virtual_funds = models.DecimalField(max_digits=18, decimal_places=2, default=10000)
     level = models.IntegerField(default=1)
     streak_count = models.IntegerField(default=0)
@@ -74,7 +75,7 @@ class Achievement(models.Model):
 class UserAchievement(models.Model):
     user = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
     achievement = models.ForeignKey(Achievement, on_delete=models.CASCADE)
-    achieved_at = models.DateTimeField()
+    achieved_at = models.DateTimeField(auto_now_add=True)
 
 class Leaderboard(models.Model):
     LEADERBOARD_TYPES = [
@@ -89,6 +90,22 @@ class Leaderboard(models.Model):
 class LeaderboardEntry(models.Model):
     leaderboard = models.ForeignKey(Leaderboard, on_delete=models.CASCADE)
     user = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
-    score = models.DecimalField(max_digits=18, decimal_places=2)
+    profit = models.DecimalField(max_digits=18, decimal_places=2)
     rank = models.IntegerField()
 
+# could implement score_types instead of profit model, with the 
+# default being profit, and in db can have attributes like
+# xp, no. of trades, login streak, 
+# that can be displayed by pressing the top of the section, (for eg 
+# if i pressed on the xp section, it will sort users with highest xp to
+# lowest)
+
+# implementation:
+# SCORE_TYPES = [
+#   ('profit', 'Profit'),
+#   ('xp', 'XP'),
+#   ('trades', 'Number of Trades'),
+#   ('streak', 'Login Streak'),
+# ]
+# score = models.DecimalField(max_digits=18, decimal_places=2)
+# score_type = models.CharField(max_length=50, choices=SCORE_TYPES, default='profit')
