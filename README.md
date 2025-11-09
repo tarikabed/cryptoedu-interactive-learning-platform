@@ -1,6 +1,6 @@
 # Cedu
 
-![Cedu Logo](https://gitlab.surrey.ac.uk/csee/com2027/2024-25/Group8/-/raw/cedu-updates/CryptoEdu/public/images/logo.png)
+<img width="1500" height="505" alt="image" src="https://github.com/user-attachments/assets/28eebec4-67a5-42a2-bc77-eb873c157a6d" />
 
 ## Overview
 
