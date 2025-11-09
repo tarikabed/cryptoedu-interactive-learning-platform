@@ -4,7 +4,11 @@
 
 ## Overview
 
-Cedu (CryptoEdu) is an interactive educational platform designed to help young investors learn about cryptocurrency trading in a safe, risk-free environment. The platform combines educational courses with a paper trading simulator that uses real-time cryptocurrency data, allowing users to practice trading strategies without financial risk.
+**Cedu (CryptoEdu)** is an interactive educational platform designed to help young investors learn about cryptocurrency trading in a safe, risk-free environment.  
+The platform combines educational courses with a paper trading simulator that uses real-time cryptocurrency data, allowing users to practise trading strategies without financial risk.
+
+This project was developed collaboratively as part of a **group project**. 
+I focused primarily on **course section**, while also contributing to collaborative planning and integration of the backend.
 
 ## Key Features
 
